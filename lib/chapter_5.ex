@@ -2,7 +2,7 @@ defmodule Chapter5 do
 
   @moduledoc """
    Anonymous functions
-   1. Create and run the functions that do the following
+   Create and run the functions that do the following
   """
 
   @doc """
@@ -111,5 +111,36 @@ defmodule Chapter5 do
       fizzbuzz(num)
     end
   end
+
+  @doc ~S"""
+    prefix function which is partially applied, returning a prefixed string
+
+  ## Examples
+
+       iex> prefix = fn fix -> (fn name -> "#{fix} #{name}" end) end
+       #Function<6.52032458/1 in :erl_eval.expr/5>
+       iex> make_mr = prefix.("Mr.")
+       #Function<6.52032458/1 in :erl_eval.expr/5>
+       iex> make_mr.("Rogers")
+       "Mr. Rogers"
+
+    """
+
+  @doc ~S"""
+      rewrite with & syntax
+      Enum.map [1, 2, 3, 4], fn x -> x + 2 end
+      Enum.each [1, 2, 3, 4], fn x -> IO.inspect x end
+
+    ## Examples
+
+     iex> Enum.map [1, 2, 3, 4], &(&1 + 1)
+     [2, 3, 4, 5]
+     iex> Enum.each [1, 2, 3, 4], &IO.inspect/1
+     1
+     2
+     3
+     4
+     :ok
+  """
 
 end
