@@ -1,0 +1,2 @@
+defmodule ElixirJourney do
+end
