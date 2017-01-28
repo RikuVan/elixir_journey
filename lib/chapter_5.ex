@@ -3,57 +3,53 @@ defmodule Chapter5 do
   @moduledoc """
    Anonymous functions
    Create and run the functions that do the following
+
+   Althought he doc tests pass, I get warnings with string literals as output and
+   so replace iex> with >
   """
 
   @doc """
     concats two lists
 
-  ## Examples
+      ## Examples
 
-      ie> concat_list = fn list_a, list_b -> list_a ++ list_b end
-      ie> concat_list.([:a, :b], [:c, :d])
-      [:a, :b, :c, :d]
+        ie> concat_list = fn list_a, list_b -> list_a ++ list_b end
+        ie> concat_list.([:a, :b], [:c, :d])
+        [:a, :b, :c, :d]
 
-  """
-
-  @doc """
     sums three numbers
 
-  ## Examples
+      ## Examples
 
-      ie> sum = fn x, y, z -> x + y + z end
-      ie> sum.(1,2,3)
-      6
-  """
+        ie> sum = fn x, y, z -> x + y + z end
+        ie> sum.(1,2,3)
+        6
 
-  @doc """
     sums three numbers
 
-  ## Examples
+      ## Examples
 
-      iex> pair_tuple_to_list = fn {a, b} -> [a, b] end
-      iex> pair_tuple_to_list.({1234, 5678})
-      [1234, 5678]
-  """
+        iex> pair_tuple_to_list = fn {a, b} -> [a, b] end
+        iex> pair_tuple_to_list.({1234, 5678})
+        [1234, 5678]
 
-  @doc """
      return string Fizzbuzz, Fizz, Buzz, or item based on the pattern
 
-  ## Examples
+      ## Examples
 
-      iex> Chapter5.do_fizzbuzz({0, 0, 3})
-      FizzBuzz
-      :ok
-
-
-      iex> Chapter5.do_fizzbuzz({2, 0, 3})
-      Buzz
-      :ok
+        > Chapter5.do_fizzbuzz({0, 0, 3})
+        FizzBuzz
+        :ok
 
 
-      iex> Chapter5.do_fizzbuzz({2, 1, 3})
-      3
-      :ok
+        > Chapter5.do_fizzbuzz({2, 0, 3})
+        Buzz
+        :ok
+
+
+        > Chapter5.do_fizzbuzz({2, 1, 3})
+        3
+        :ok
 
   """
 
@@ -70,19 +66,19 @@ defmodule Chapter5 do
   @doc """
     fizzbuzz
 
-  ## Examples
+      ## Examples
 
-      iex> Chapter5.fizzbuzz(3)
-      Fizz
-      :ok
+        > Chapter5.fizzbuzz(3)
+        Fizz
+        :ok
 
-      iex> Chapter5.fizzbuzz(5)
-      Buzz
-      :ok
+        > Chapter5.fizzbuzz(5)
+        Buzz
+        :ok
 
-      iex> Chapter5.fizzbuzz(2)
-      2
-      :ok
+        > Chapter5.fizzbuzz(2)
+        2
+        :ok
   """
 
   def fizzbuzz num do
@@ -92,17 +88,17 @@ defmodule Chapter5 do
   @doc """
     run fizzbuzz from start param to end param
 
-  ## Examples
+      ## Examples
 
-      iex> Chapter5.run_fizzbuzz(10, 16)
-      Buzz
-      11
-      Fizz
-      13
-      14
-      FizzBuzz
-      16
-      [:ok, :ok, :ok, :ok, :ok, :ok, :ok]
+        > Chapter5.run_fizzbuzz(10, 16)
+        Buzz
+        11
+        Fizz
+        13
+        14
+        FizzBuzz
+        16
+        [:ok, :ok, :ok, :ok, :ok, :ok, :ok]
 
   """
 
@@ -115,32 +111,29 @@ defmodule Chapter5 do
   @doc ~S"""
     prefix function which is partially applied, returning a prefixed string
 
-  ## Examples
+      ## Examples
 
-       iex> prefix = fn fix -> (fn name -> "#{fix} #{name}" end) end
+       > prefix = fn fix -> (fn name -> "#{fix} #{name}" end) end
        #Function<6.52032458/1 in :erl_eval.expr/5>
-       iex> make_mr = prefix.("Mr.")
+       > make_mr = prefix.("Mr.")
        #Function<6.52032458/1 in :erl_eval.expr/5>
-       iex> make_mr.("Rogers")
+       > make_mr.("Rogers")
        "Mr. Rogers"
 
-    """
+    rewrite with & syntax
+    Enum.map [1, 2, 3, 4], fn x -> x + 2 end
+    Enum.each [1, 2, 3, 4], fn x -> IO.inspect x end
 
-  @doc ~S"""
-      rewrite with & syntax
-      Enum.map [1, 2, 3, 4], fn x -> x + 2 end
-      Enum.each [1, 2, 3, 4], fn x -> IO.inspect x end
+      ## Examples
 
-    ## Examples
-
-     iex> Enum.map [1, 2, 3, 4], &(&1 + 1)
-     [2, 3, 4, 5]
-     iex> Enum.each [1, 2, 3, 4], &IO.inspect/1
-     1
-     2
-     3
-     4
-     :ok
+       iex> Enum.map [1, 2, 3, 4], &(&1 + 1)
+       [2, 3, 4, 5]
+       iex> Enum.each [1, 2, 3, 4], &IO.inspect/1
+       1
+       2
+       3
+       4
+       :ok
   """
 
 end

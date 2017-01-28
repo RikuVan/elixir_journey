@@ -28,15 +28,15 @@ defmodule Chapter_2 do
 
 
  @doc """
-##2. Which of the following will match?
-    1. [ a, b, a ] = [ 1, 2, 3 ]
-    2. [ a, b, a ] = [ 1, 1, 2 ]
-    3. a = 1
-    4. ^a = 2
-    5. ^a = 1
-    6. ^a = 2 - a
+  ##2. Which of the following will match?
+      1. [ a, b, a ] = [ 1, 2, 3 ]
+      2. [ a, b, a ] = [ 1, 1, 2 ]
+      3. a = 1
+      4. ^a = 2
+      5. ^a = 1
+      6. ^a = 2 - a
 
-    Answer: 3, 5, 6
-"""
+      Answer: 3, 5, 6
+  """
 
 end

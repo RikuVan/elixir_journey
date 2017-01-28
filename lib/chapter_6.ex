@@ -40,12 +40,12 @@ defmodule Chapter6 do
 
       ## Examples
 
-        iex> alias Chapter6.Math
-        iex> Math.sum(4)
+        > alias Chapter6.Math
+        > Math.sum(4)
         10
-        iex> Math.gcd(5, 15)
+        > Math.gcd(5, 15)
         5
-        iex> Math.guess(273)
+        > Math.guess(273)
         "Is it 500?"
         "Is it 250?"
         "Is it 374?"
@@ -83,5 +83,23 @@ defmodule Chapter6 do
     def guess(actual, low..high = range \\ 1..1000) do
       do_guess(actual, div(low + high, 2), range)
     end
+  end
+
+  defmodule ModulesAndFunctions do
+  @doc """
+    3. Find the approprate Erlang or Elixir lib for the task
+
+      ## Examples
+
+        iex> :io_lib.format("~.2f~n", [3.23432423])
+        iex> ['3.23', '\n']
+        iex> System.get_env("LOGNAME")
+        iex> "richard.vancamp"
+        iex> Path.extname("chapter_2.ex")
+        iex> ".ex"
+        iex> System.cwd
+        iex> "/Users/richard.vancamp/WebstormProjects/elixir_journey"
+
+    """
   end
 end
